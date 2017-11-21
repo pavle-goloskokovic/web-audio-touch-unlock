@@ -31,5 +31,8 @@
   "bugs": {
     "url": "https://github.com/pavle-goloskokovic/web-audio-touch-unlock/issues"
   },
-  "homepage": "https://github.com/pavle-goloskokovic/web-audio-touch-unlock#readme"
+  "homepage": "https://github.com/pavle-goloskokovic/web-audio-touch-unlock#readme",
+  "devDependencies": {
+    "typescript": "^2.6.1"
+  }
 }

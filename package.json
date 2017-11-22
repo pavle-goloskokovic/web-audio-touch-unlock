@@ -37,5 +37,8 @@
   "homepage": "https://github.com/pavle-goloskokovic/web-audio-touch-unlock#readme",
   "devDependencies": {
     "typescript": "^2.6.1"
+  },
+  "dependencies": {
+    "promise": "^8.0.1"
   }
 }

@@ -1,1 +1,2 @@
-export default function webAudioTouchUnlock(context: AudioContext): void;
+import * as Promise from 'promise';
+export default function webAudioTouchUnlock(context: AudioContext): Promise<{}>;

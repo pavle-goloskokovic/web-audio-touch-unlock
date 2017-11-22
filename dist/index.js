@@ -2,11 +2,11 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 function webAudioTouchUnlock(context) {
     if (!context || !(context instanceof (window.AudioContext || window.webkitAudioContext))) {
-        console.error('webAudioTouchUnlock - You need to pass an instance of AudioContext to this method call!');
+        console.error('WebAudioTouchUnlock - You need to pass an instance of AudioContext to this method call!');
         return;
     }
-    if (typeof context.state !== 'string') {
-        console.warn('webAudioTouchUnlock - Seems like this approach can not be used with current ' +
+    if (typeof context.state !== 'string' || typeof context.resume !== 'function') {
+        console.warn('WebAudioTouchUnlock - Seems like this approach can not be used with current ' +
             'implementation of AudioContext. We\'re sorry about that, however you can open an issue here: ' +
             'https://github.com/pavle-goloskokovic/web-audio-touch-unlock/issues and we\'ll try to sort it out.');
         return;

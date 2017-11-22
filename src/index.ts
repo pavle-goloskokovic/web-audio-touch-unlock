@@ -1,8 +1,6 @@
-import * as Promise from 'promise'
-
 export default function webAudioTouchUnlock (context: AudioContext)
 {
-    return new Promise(function (resolve, reject)
+    return new Promise((resolve, reject) =>
     {
         if (!context || !(context instanceof ((<any>window).AudioContext || (<any>window).webkitAudioContext)))
         {
@@ -10,6 +8,7 @@ export default function webAudioTouchUnlock (context: AudioContext)
             return;
         }
 
+        // TODO use try catch instead of this check
         if (typeof context.state !== 'string' || typeof context.resume !== 'function')
         {
             reject('WebAudioTouchUnlock - Seems like this approach can not be used with current ' +

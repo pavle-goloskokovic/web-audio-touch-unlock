@@ -29,5 +29,9 @@ export default function webAudioTouchUnlock (context: AudioContext)
 
             document.body.addEventListener('touchstart', unlock, false);
         }
+        else
+        {
+            resolve();
+        }
     });
 }

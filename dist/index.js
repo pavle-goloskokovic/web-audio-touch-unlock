@@ -20,6 +20,9 @@ function webAudioTouchUnlock(context) {
             };
             document.body.addEventListener('touchstart', unlock_1, false);
         }
+        else {
+            resolve();
+        }
     });
 }
 exports.default = webAudioTouchUnlock;

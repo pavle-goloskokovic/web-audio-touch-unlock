@@ -1,1 +1,1 @@
-export default function webAudioTouchUnlock(context: AudioContext): Promise<{}>;
+export default function webAudioTouchUnlock(context: AudioContext): Promise<boolean>;

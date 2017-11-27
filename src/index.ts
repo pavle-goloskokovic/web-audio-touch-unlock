@@ -1,6 +1,6 @@
 export default function webAudioTouchUnlock (context: AudioContext)
 {
-    return new Promise((resolve, reject) =>
+    return new Promise <boolean>((resolve, reject) =>
     {
         if (!context || !(context instanceof ((<any>window).AudioContext || (<any>window).webkitAudioContext)))
         {
@@ -8,29 +8,35 @@ export default function webAudioTouchUnlock (context: AudioContext)
             return;
         }
 
-        // TODO use try catch instead of this check
-        if (typeof context.state !== 'string' || typeof context.resume !== 'function')
+        try
         {
-            reject('WebAudioTouchUnlock - Seems like this approach can not be used with current ' +
-                'implementation of AudioContext. We\'re sorry about that, however you can open an issue here: ' +
-                'https://github.com/pavle-goloskokovic/web-audio-touch-unlock/issues and we\'ll try to sort it out.');
-            return;
-        }
-
-        if (context.state === 'suspended')
-        {
-            let unlock = () =>
+            if (context.state === 'suspended')
             {
-                document.body.removeEventListener('touchstart', unlock);
+                let unlock = () =>
+                {
+                    document.body.removeEventListener('touchstart', unlock);
 
-                resolve(context.resume());
-            };
+                    context.resume().then(()=>
+                        {
+                            resolve(true);
+                        },
+                        (reason)=>
+                        {
+                            reject(reason);
+                        }
+                    );
+                };
 
-            document.body.addEventListener('touchstart', unlock, false);
+                document.body.addEventListener('touchstart', unlock, false);
+            }
+            else
+            {
+                resolve(false);
+            }
         }
-        else
+        catch (e)
         {
-            resolve();
+            reject(e);
         }
     });
 }

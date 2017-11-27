@@ -6,22 +6,24 @@ function webAudioTouchUnlock(context) {
             reject('WebAudioTouchUnlock - You need to pass an instance of AudioContext to this method call!');
             return;
         }
-        // TODO use try catch instead of this check
-        if (typeof context.state !== 'string' || typeof context.resume !== 'function') {
-            reject('WebAudioTouchUnlock - Seems like this approach can not be used with current ' +
-                'implementation of AudioContext. We\'re sorry about that, however you can open an issue here: ' +
-                'https://github.com/pavle-goloskokovic/web-audio-touch-unlock/issues and we\'ll try to sort it out.');
-            return;
+        try {
+            if (context.state === 'suspended') {
+                var unlock_1 = function () {
+                    document.body.removeEventListener('touchstart', unlock_1);
+                    context.resume().then(function () {
+                        resolve(true);
+                    }, function (reason) {
+                        reject(reason);
+                    });
+                };
+                document.body.addEventListener('touchstart', unlock_1, false);
+            }
+            else {
+                resolve(false);
+            }
         }
-        if (context.state === 'suspended') {
-            var unlock_1 = function () {
-                document.body.removeEventListener('touchstart', unlock_1);
-                resolve(context.resume());
-            };
-            document.body.addEventListener('touchstart', unlock_1, false);
-        }
-        else {
-            resolve();
+        catch (e) {
+            reject(e);
         }
     });
 }

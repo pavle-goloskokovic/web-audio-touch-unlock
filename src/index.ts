@@ -4,7 +4,7 @@ export default function webAudioTouchUnlock (context: AudioContext)
     {
         if (!context || !(context instanceof ((<any>window).AudioContext || (<any>window).webkitAudioContext)))
         {
-            reject('WebAudioTouchUnlock - You need to pass an instance of AudioContext to this method call!');
+            reject('WebAudioTouchUnlock: You need to pass an instance of AudioContext to this method call');
             return;
         }
 

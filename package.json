@@ -1,7 +1,7 @@
 {
   "name": "web-audio-touch-unlock",
   "version": "1.0.0",
-  "description": "Unlocking Web Audio, the smarter way",
+  "description": "Unlocking Web Audio - the smarter way",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {

@@ -1,2 +1,2 @@
 # web-audio-touch-unlock
-Unlocking Web Audio, the smarter way
+Unlocking Web Audio - the smarter way

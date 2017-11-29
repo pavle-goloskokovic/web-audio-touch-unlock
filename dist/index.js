@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 function webAudioTouchUnlock(context) {
     return new Promise(function (resolve, reject) {
         if (!context || !(context instanceof (window.AudioContext || window.webkitAudioContext))) {
-            reject('WebAudioTouchUnlock - You need to pass an instance of AudioContext to this method call!');
+            reject('WebAudioTouchUnlock: You need to pass an instance of AudioContext to this method call');
             return;
         }
         try {

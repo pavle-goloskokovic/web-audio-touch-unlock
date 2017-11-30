@@ -14,10 +14,11 @@ export default function webAudioTouchUnlock (context: AudioContext)
             {
                 let unlock = () =>
                 {
-                    document.body.removeEventListener('touchend', unlock);
-
                     context.resume().then(()=>
                         {
+                            document.body.removeEventListener('touchstart', unlock);
+                            document.body.removeEventListener('touchend', unlock);
+
                             resolve(true);
                         },
                         (reason)=>
@@ -27,6 +28,7 @@ export default function webAudioTouchUnlock (context: AudioContext)
                     );
                 };
 
+                document.body.addEventListener('touchstart', unlock, false);
                 document.body.addEventListener('touchend', unlock, false);
             }
             else

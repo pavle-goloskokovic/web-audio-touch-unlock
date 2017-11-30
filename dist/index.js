@@ -9,13 +9,15 @@ function webAudioTouchUnlock(context) {
         try {
             if (context.state === 'suspended') {
                 var unlock_1 = function () {
-                    document.body.removeEventListener('touchend', unlock_1);
                     context.resume().then(function () {
+                        document.body.removeEventListener('touchstart', unlock_1);
+                        document.body.removeEventListener('touchend', unlock_1);
                         resolve(true);
                     }, function (reason) {
                         reject(reason);
                     });
                 };
+                document.body.addEventListener('touchstart', unlock_1, false);
                 document.body.addEventListener('touchend', unlock_1, false);
             }
             else {

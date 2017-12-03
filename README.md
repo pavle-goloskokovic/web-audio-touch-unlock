@@ -1,8 +1,8 @@
 ## Web Audio Touch Unlock
+
 ### Unlocking Web Audio - the smarter way
 
-On iOS, the Web Audio API requires sounds to be triggered from an explicit user action, such as a tap. 
-Playing sound from an onload event will not play sound.
+On iOS, the Web Audio API requires sounds to be triggered from an explicit user action, such as a tap, before any sound can be played on a webpage.
 
 This method fixes the issue without you even having to think about it, you just pass your AudioContext instance to it and you're good to go!
 

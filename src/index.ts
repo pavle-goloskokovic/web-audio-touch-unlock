@@ -10,7 +10,7 @@ export default function webAudioTouchUnlock (context: AudioContext)
 
         try
         {
-            if (context.state === 'suspended')
+            if (context.state === 'suspended' && 'ontouchstart' in window)
             {
                 let unlock = () =>
                 {

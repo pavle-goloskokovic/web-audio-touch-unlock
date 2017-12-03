@@ -7,7 +7,7 @@ function webAudioTouchUnlock(context) {
             return;
         }
         try {
-            if (context.state === 'suspended') {
+            if (context.state === 'suspended' && 'ontouchstart' in window) {
                 var unlock_1 = function () {
                     context.resume().then(function () {
                         document.body.removeEventListener('touchstart', unlock_1);

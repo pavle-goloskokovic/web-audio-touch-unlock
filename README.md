@@ -4,11 +4,11 @@
 
 On iOS, the Web Audio API requires sounds to be triggered from an explicit user action, such as a tap, before any sound can be played on a webpage.
 
-This method fixes the issue without you even having to think about it, you just pass your AudioContext instance to it and you're good to go!
+This method fixes the issue without you even having to think about it, you just pass your `AudioContext` instance to it and you're good to go!
 
 You can read more about the issue and how this method handles it in this article. 
 
-Try a live demo [here](https://pavle-goloskokovic.github.io/web-audio-touch-unlock-example/).
+Try it out [here](https://pavle-goloskokovic.github.io/web-audio-touch-unlock-example/).
 
 ## Installation
 

@@ -6,7 +6,7 @@ On iOS, the Web Audio API requires sounds to be triggered from an explicit user 
 
 This method fixes the issue without you even having to think about it, you just pass your `AudioContext` instance to it and you're good to go!
 
-You can read more about the issue and how this method handles it in this article. 
+You can read more about the issue and how this method handles it in [this article](https://medium.com/@pgoloskokovic/unlocking-web-audio-the-smarter-way-8858218c0e09). 
 
 Try it out [here](https://pavle-goloskokovic.github.io/web-audio-touch-unlock-example/).
 

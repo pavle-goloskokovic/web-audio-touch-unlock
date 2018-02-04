@@ -29,7 +29,7 @@ webAudioTouchUnlock(context)
     .then(function (unlocked) {
         if(unlocked) {
             // AudioContext was unlocked from an explicit user action, sound should start playing now
-        } else  {
+        } else {
             // There was no need for unlocking, devices other than iOS
         }
     }, function(reason) {
@@ -59,7 +59,7 @@ webAudioTouchUnlock(context)
     .then((unlocked: boolean) => {
         if(unlocked) {
             // AudioContext was unlocked from an explicit user action, sound should start playing now
-        } else  {
+        } else {
             // There was no need for unlocking, devices other than iOS
         }
     },(reason: any) => {
@@ -80,4 +80,4 @@ source.start();
 
 ## License
 
-  MIT
+  The MIT License (MIT), Copyright 2017 [Pavle Goloskokovic](https://github.com/pavle-goloskokovic)

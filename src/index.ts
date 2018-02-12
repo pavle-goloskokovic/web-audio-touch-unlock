@@ -8,37 +8,30 @@ export default function webAudioTouchUnlock (context: AudioContext)
             return;
         }
 
-        try
+        if (context.state === 'suspended' && 'ontouchstart' in window)
         {
-            if (context.state === 'suspended' && 'ontouchstart' in window)
+            let unlock = () =>
             {
-                let unlock = () =>
-                {
-                    context.resume().then(()=>
-                        {
-                            document.body.removeEventListener('touchstart', unlock);
-                            document.body.removeEventListener('touchend', unlock);
+                context.resume().then(()=>
+                    {
+                        document.body.removeEventListener('touchstart', unlock);
+                        document.body.removeEventListener('touchend', unlock);
 
-                            resolve(true);
-                        },
-                        (reason)=>
-                        {
-                            reject(reason);
-                        }
-                    );
-                };
+                        resolve(true);
+                    },
+                    (reason)=>
+                    {
+                        reject(reason);
+                    }
+                );
+            };
 
-                document.body.addEventListener('touchstart', unlock, false);
-                document.body.addEventListener('touchend', unlock, false);
-            }
-            else
-            {
-                resolve(false);
-            }
+            document.body.addEventListener('touchstart', unlock, false);
+            document.body.addEventListener('touchend', unlock, false);
         }
-        catch (e)
+        else
         {
-            reject(e);
+            resolve(false);
         }
     });
 }

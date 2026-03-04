@@ -1,41 +1,63 @@
 {
-  "name": "web-audio-touch-unlock",
-  "version": "1.0.1",
-  "description": "Unlocking Web Audio - the smarter way",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "scripts": {
-    "prepublish": "npm run build",
-    "build": "tsc",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/pavle-goloskokovic/web-audio-touch-unlock.git"
-  },
-  "keywords": [
-    "web",
-    "audio",
-    "webaudio",
-    "unlock",
-    "touch",
-    "mobile",
-    "ios",
-    "android",
-    "ipad",
-    "iphone",
-    "apple",
-    "javascript",
-    "html5",
-    "typescript"
-  ],
-  "author": "Pavle Goloskokovic <pgoloskokovic@gmail.com> (http://prunegames.com)",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/pavle-goloskokovic/web-audio-touch-unlock/issues"
-  },
-  "homepage": "https://github.com/pavle-goloskokovic/web-audio-touch-unlock#readme",
-  "devDependencies": {
-    "typescript": "^2.6.1"
-  }
+    "name": "web-audio-touch-unlock",
+    "version": "1.1.0",
+    "description": "Deprecated: use 'web-audio-unlock' instead (same API)",
+    "main": "dist/index.js",
+    "module": "dist/index.mjs",
+    "types": "dist/index.d.ts",
+    "files": [
+        "dist",
+        "README.md",
+        "LICENSE"
+    ],
+    "exports": {
+        ".": {
+            "types": "./dist/index.d.ts",
+            "require": "./dist/index.js",
+            "import": "./dist/index.mjs",
+            "default": "./dist/index.js"
+        },
+        "./unminified": {
+            "types": "./dist/index.d.ts",
+            "require": "./dist/unminified.js",
+            "import": "./dist/unminified.mjs",
+            "default": "./dist/unminified.js"
+        }
+    },
+    "typesVersions": {
+        "*": {
+            "unminified": [
+                "dist/index.d.ts"
+            ]
+        }
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/pavle-goloskokovic/web-audio-touch-unlock.git"
+    },
+    "keywords": [
+        "web",
+        "audio",
+        "webaudio",
+        "unlock",
+        "touch",
+        "mobile",
+        "ios",
+        "android",
+        "ipad",
+        "iphone",
+        "apple",
+        "javascript",
+        "html5",
+        "typescript"
+    ],
+    "author": "Pavle Goloskokovic <pgoloskokovic@gmail.com> (http://prunegames.com)",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/pavle-goloskokovic/web-audio-touch-unlock/issues"
+    },
+    "homepage": "https://github.com/pavle-goloskokovic/web-audio-touch-unlock#readme",
+    "dependencies": {
+        "web-audio-unlock": "^1.0.0"
+    }
 }
